@@ -2,5 +2,5 @@
 
 internal interface IBookService
 {
-    List<BookDto> ListBooks();
+    Task<List<BookDto>> ListBooksAsync();
 }

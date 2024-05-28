@@ -2,8 +2,19 @@
 
 internal class BookService : IBookService
 {
-    public List<BookDto> ListBooks()
+    private readonly IBookRepository _bookRepository;
+
+    public BookService(IBookRepository bookRepository)
     {
-        return [new BookDto(Guid.NewGuid(), "The Fellowship of the Ring", "J.R.R. Tolkien")];
+        _bookRepository = bookRepository;
+    }
+
+    public async Task<List<BookDto>> ListBooksAsync()
+    {
+        var books = (await _bookRepository.ListAllAsync())
+            .Select(x => new BookDto(x.Id, x.Title, x.Author, x.Price))
+            .ToList();
+
+        return books;
     }
 }
