@@ -4,3 +4,6 @@ GET {{Bookstore.Web_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET {{Bookstore.Web_HostAddress}}/books/
+Accept: application/json
