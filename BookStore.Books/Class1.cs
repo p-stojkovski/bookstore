@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Bookstore.Books;
 
-public interface IBookService
+internal interface IBookService
 {
     IEnumerable<BookDto> ListBooks();
 }
 
-public record BookDto(Guid Id, string Title, string Author);
+internal record BookDto(Guid Id, string Title, string Author);
 
-public class BookService : IBookService
+internal class BookService : IBookService
 {
     public IEnumerable<BookDto> ListBooks()
     {
@@ -25,5 +26,15 @@ public static class BookEndpoints
         {
             return bookService.ListBooks();
         });
+    }
+}
+
+public static class BookServiceExtensions
+{
+    public static IServiceCollection AddBookServices(this IServiceCollection services)
+    {
+        services.AddScoped<IBookService, BookService>();
+
+        return services;
     }
 }
