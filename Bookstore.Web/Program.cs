@@ -1,9 +1,11 @@
 using Bookstore.Books;
+using FastEndpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddFastEndpoints();
 
 // Add module service
 builder.Services.AddBookServices();
@@ -18,6 +20,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapBookEndpoints();
+app.UseFastEndpoints();
 
 app.Run();
