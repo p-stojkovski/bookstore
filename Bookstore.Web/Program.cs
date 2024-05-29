@@ -1,4 +1,4 @@
-using Bookstore.Books;
+﻿using Bookstore.Books;
 using FastEndpoints;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddFastEndpoints();
 
 // Add module service
-builder.Services.AddBookServices();
+builder.Services.AddBookServices(builder.Configuration);
 
 var app = builder.Build();
 

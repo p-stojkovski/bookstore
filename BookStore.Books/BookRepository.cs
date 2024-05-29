@@ -1,30 +1,43 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
+
 namespace Bookstore.Books;
 
 internal class BookRepository : IBookRepository
 {
+    private readonly BookDbContext _dbContext;
+
+    public BookRepository(BookDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
     public Task AddAsync(Book book)
     {
-        throw new NotImplementedException();
+        _dbContext.Books.Add(book);
+
+        return Task.CompletedTask;
     }
 
     public Task DeleteAsync(Book book)
     {
-        throw new NotImplementedException();
+        _dbContext.Remove(book);
+
+        return Task.CompletedTask;
     }
 
-    public Task<Book?> GetByIdAsync(Guid id)
+    public async Task<Book?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Books.FindAsync(id);
     }
 
-    public Task<List<Book>> ListAllAsync()
+    public async Task<List<Book>> ListAllAsync()
     {
-        throw new NotImplementedException();
+        return await _dbContext.Books.ToListAsync();
     }
 
-    public Task SaveChangesAsync()
+    public async Task SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        await _dbContext.SaveChangesAsync();
     }
 }
