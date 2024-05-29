@@ -1,4 +1,4 @@
-﻿namespace Bookstore.Books;
+﻿namespace Bookstore.Books.Endpoints;
 
 public class CreateBookRequest
 {

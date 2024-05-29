@@ -1,8 +1,8 @@
 ﻿using FastEndpoints;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Endpoints;
 
-internal class UpdateBookPriceEndpoint(IBookService bookService) : 
+internal class UpdatePrice(IBookService bookService) :
     Endpoint<UpdateBookPriceRequest, BookDto>
 {
     private readonly IBookService _bookService = bookService;

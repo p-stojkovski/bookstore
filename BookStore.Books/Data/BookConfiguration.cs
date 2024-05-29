@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Data;
 
 internal class BookConfiguration : IEntityTypeConfiguration<Book>
 {

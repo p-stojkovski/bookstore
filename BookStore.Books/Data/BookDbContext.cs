@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Data;
 
 public class BookDbContext : DbContext
 {

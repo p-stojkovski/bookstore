@@ -1,8 +1,8 @@
 ﻿using FastEndpoints;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Endpoints;
 
-internal class DeleteBookEndpoint(IBookService bookService) :
+internal class Delete(IBookService bookService) :
     Endpoint<DeleteBookRequest>
 {
     private readonly IBookService _bookService = bookService;
@@ -13,7 +13,7 @@ internal class DeleteBookEndpoint(IBookService bookService) :
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(DeleteBookRequest request, 
+    public override async Task HandleAsync(DeleteBookRequest request,
         CancellationToken cancellationToken = default)
     {
         //TODO: Handle not found

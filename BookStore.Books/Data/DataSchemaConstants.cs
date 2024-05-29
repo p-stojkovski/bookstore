@@ -1,4 +1,4 @@
-﻿namespace Bookstore.Books;
+﻿namespace Bookstore.Books.Data;
 
 public static class DataSchemaConstants
 {

@@ -1,7 +1,6 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Data;
 
 internal class BookRepository : IBookRepository
 {

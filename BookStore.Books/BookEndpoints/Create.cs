@@ -1,8 +1,8 @@
 ﻿using FastEndpoints;
 
-namespace Bookstore.Books;
+namespace Bookstore.Books.Endpoints;
 
-internal class CreateBookEndpoint(IBookService bookService) :
+internal class Create(IBookService bookService) :
     Endpoint<CreateBookRequest, BookDto>
 {
     private readonly IBookService _bookService = bookService;
@@ -21,6 +21,6 @@ internal class CreateBookEndpoint(IBookService bookService) :
             request.Price);
 
         await _bookService.CreateBookAsync(newBook);
-        await SendCreatedAtAsync<CreateBookEndpoint>(new { newBook.Id }, newBook);;
+        await SendCreatedAtAsync<Create>(new { newBook.Id }, newBook); ;
     }
 }
