@@ -4,3 +4,39 @@ GET {{Bookstore.Web_HostAddress}}/books/
 Accept: application/json
 
 ###
+
+@BookID=a29b0d03-75bd-4590-a0c6-bec4bcc2908e
+GET {{Bookstore.Web_HostAddress}}/books/{{BookID}}
+Accept: application/json
+
+###
+
+POST {{Bookstore.Web_HostAddress}}/books
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
+  "title": "Modular Monoliths",
+  "author": "Steve Smith",
+  "price": 19.99
+}
+
+###
+
+@BookID=b29b0d03-75bd-4590-a0c6-bec4bcc2908e
+DELETE {{Bookstore.Web_HostAddress}}/books/{{BookID}}
+Accept: application/json
+
+###
+
+POST {{Bookstore.Web_HostAddress}}/books/b29b0d03-75bd-4590-a0c6-bec4bcc2908e/price-history
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
+  "price": 1.99
+}
+
+###
