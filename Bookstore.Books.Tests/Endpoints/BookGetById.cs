@@ -13,7 +13,7 @@ public class BookGetById(Fixture fixture) : TestBase<Fixture>
     {
         //Arrange
         Guid id = Guid.Parse(bookId);
-        var request = new GetBookByIdRequest { Id = id };
+        var request = new GetBookByIdRequest(id);
 
         //Act
         var testResult = await fixture.Client.GETAsync<GetById, GetBookByIdRequest, BookDto>(request);

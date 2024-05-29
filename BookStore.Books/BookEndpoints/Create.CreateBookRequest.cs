@@ -1,9 +1,27 @@
-﻿namespace Bookstore.Books.Endpoints;
+﻿using FastEndpoints;
+using FluentValidation;
 
-public class CreateBookRequest
+namespace Bookstore.Books.Endpoints;
+
+public record CreateBookRequest
 {
-    public Guid? Id { get; set; }
-    public string Title { get; set; } = string.Empty;
-    public string Author { get; set; } = string.Empty;
-    public decimal Price { get; set; }
+    public Guid? Id { get; init; }
+    public string Title { get; init; } = string.Empty;
+    public string Author { get; init; } = string.Empty;
+    public decimal Price { get; init; }
+}
+
+public class CreateBookRequestValidator : Validator<CreateBookRequest>
+{
+    public CreateBookRequestValidator()
+    {
+        RuleFor(x => x.Id)
+            .NotNull()
+            .NotEqual(Guid.Empty)
+            .WithMessage("A book id is required.");
+
+        RuleFor(x => x.Price)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Book prices may not be negative.");
+    }
 }
