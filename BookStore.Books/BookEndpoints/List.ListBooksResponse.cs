@@ -1,6 +1,6 @@
 ﻿namespace Bookstore.Books.Endpoints;
 
-internal class ListBooksResponse
+internal record ListBooksResponse
 {
-    public List<BookDto> Books { get; set; } = new List<BookDto>();
+    public List<BookDto> Books { get; init; } = new List<BookDto>();
 }
