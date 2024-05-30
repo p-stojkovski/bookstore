@@ -23,7 +23,6 @@ internal class AddItemToCartHandler : IRequestHandler<AddItemToCartCommand, Resu
             return Result.Unauthorized();
         }
 
-        //TODO: Get description and price from Books module
         var result = await _mediator.Send(new BookDetailsQuery(request.BookId), cancellationToken);
         if (result.Status is ResultStatus.NotFound)
         {

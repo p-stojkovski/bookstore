@@ -18,8 +18,8 @@ internal class ApplicationUser : IdentityUser
         if (existingBook is not null)
         {
             existingBook.UpdateQuantity(existingBook.Quantity + item.Quantity);
-
-            //TODO: What to do if other details of the item have been updated?
+            existingBook.UpdateDescription(item.Description);
+            existingBook.UpdateUnitPrice(item.UnitPrice);
 
             return;
         }
@@ -29,7 +29,7 @@ internal class ApplicationUser : IdentityUser
 
 }
 
-internal class CartItem
+public class CartItem
 {
     public CartItem()
     { }
@@ -51,6 +51,16 @@ internal class CartItem
     internal void UpdateQuantity(int quantity)
     {
         Quantity = Guard.Against.Negative(quantity);
+    }
+
+    internal void UpdateDescription(string description)
+    {
+        Description = Guard.Against.NullOrEmpty(description);
+    }
+
+    internal void UpdateUnitPrice(decimal unitPrice)
+    {
+       UnitPrice = Guard.Against.Negative(unitPrice);
     }
 }
 

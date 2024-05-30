@@ -1,9 +1,8 @@
 ﻿using Ardalis.Result;
+using Bookstore.Books.Contracts;
 using MediatR;
 
-namespace Bookstore.Books.Contracts;
-
-public record BookDetailsQuery(Guid BookId): IRequest<Result<BookDetailsResponse>>;
+namespace Bookstore.Books.Integrations;
 
 public class BookDetailsQueryHandler : IRequestHandler<BookDetailsQuery, Result<BookDetailsResponse>>
 {
