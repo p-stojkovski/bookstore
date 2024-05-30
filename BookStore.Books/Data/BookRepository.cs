@@ -2,7 +2,7 @@
 
 namespace Bookstore.Books.Data;
 
-internal class BookRepository : IBookRepository
+public class BookRepository : IBookRepository
 {
     private readonly BookDbContext _dbContext;
 

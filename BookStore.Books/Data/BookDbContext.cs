@@ -5,7 +5,7 @@ namespace Bookstore.Books.Data;
 
 public class BookDbContext : DbContext
 {
-    internal DbSet<Book> Books { get; set; }
+    public DbSet<Book> Books { get; set; }
 
     public BookDbContext(DbContextOptions<BookDbContext> options) : base(options)
     {

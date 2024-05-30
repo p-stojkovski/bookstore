@@ -1,7 +1,7 @@
 ﻿
 namespace Bookstore.Books;
 
-internal class BookService : IBookService
+public class BookService : IBookService
 {
     private readonly IBookRepository _bookRepository;
 
