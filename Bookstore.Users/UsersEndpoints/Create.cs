@@ -9,8 +9,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Bookstore.Users.UsersEndpoints;
 
-public record CreateUserRequest(string Email, string Password);
-
 internal class Create : Endpoint<CreateUserRequest>
 {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -35,7 +33,7 @@ internal class Create : Endpoint<CreateUserRequest>
             UserName = request.Email
         };
 
-        await _userManager.CreateAsync(newUser);
+        await _userManager.CreateAsync(newUser, request.Password);
 
         await SendOkAsync();
     }

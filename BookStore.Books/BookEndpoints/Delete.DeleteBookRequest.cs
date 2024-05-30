@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Bookstore.Books.Endpoints;
 
-public record DeleteBookRequest(Guid Id);
+internal record DeleteBookRequest(Guid Id);
 
-public class DeleteBookRequestValidator : Validator<DeleteBookRequest>
+internal class DeleteBookRequestValidator : Validator<DeleteBookRequest>
 {
     public DeleteBookRequestValidator()
     {

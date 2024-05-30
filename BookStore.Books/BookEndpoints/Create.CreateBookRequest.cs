@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Bookstore.Books.Endpoints;
 
-public record CreateBookRequest
+internal record CreateBookRequest
 {
     public Guid? Id { get; init; }
     public string Title { get; init; } = string.Empty;
@@ -11,7 +11,7 @@ public record CreateBookRequest
     public decimal Price { get; init; }
 }
 
-public class CreateBookRequestValidator : Validator<CreateBookRequest>
+internal class CreateBookRequestValidator : Validator<CreateBookRequest>
 {
     public CreateBookRequestValidator()
     {

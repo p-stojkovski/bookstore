@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Bookstore.Books.Endpoints;
 
-public record UpdateBookPriceRequest(Guid Id, decimal Price);
+internal record UpdateBookPriceRequest(Guid Id, decimal Price);
 
-public class UpdateBookPriceRequestValidator : Validator<UpdateBookPriceRequest>
+internal class UpdateBookPriceRequestValidator : Validator<UpdateBookPriceRequest>
 {
     public UpdateBookPriceRequestValidator()
     {
