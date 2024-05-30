@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Reflection;
+using Bookstore.Users.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -9,7 +11,8 @@ public static class UserModuleExtensions
 {
     public static IServiceCollection AddUsersModuleServices(this IServiceCollection services, 
         ConfigurationManager config,
-        ILogger logger)
+        ILogger logger,
+        List<Assembly> mediatRAssemblies)
     {
         string? connectionString = config.GetConnectionString("UsersConnectionString");
         services.AddDbContext<UsersDbContext>(options =>
@@ -17,6 +20,10 @@ public static class UserModuleExtensions
 
         services.AddIdentityCore<ApplicationUser>()
             .AddEntityFrameworkStores<UsersDbContext>();
+
+        services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+
+        mediatRAssemblies.Add(typeof(UserModuleExtensions).Assembly);
 
         logger.Information("{Module} module services registered.", "Users");
 

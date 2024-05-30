@@ -1,4 +1,5 @@
-﻿using Bookstore.Books.Data;
+﻿using System.Reflection;
+using Bookstore.Books.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +12,8 @@ public static class BooksModuleExtensions
     public static IServiceCollection AddBooksModuleServices(
         this IServiceCollection services,
         ConfigurationManager config, 
-        ILogger logger)
+        ILogger logger,
+        List<Assembly> mediatRAssemblies)
     {
         string? connectionString = config.GetConnectionString("BooksConnectionString");
         services.AddDbContext<BookDbContext>(options =>
@@ -19,6 +21,8 @@ public static class BooksModuleExtensions
 
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IBookService, BookService>();
+
+        mediatRAssemblies.Add(typeof(BooksModuleExtensions).Assembly);
 
         logger.Information("{Module} module services registered.", "Books");
 

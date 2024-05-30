@@ -64,4 +64,24 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzA4NzMwMSwiZXhwIjoxNzE3MDkwOTAxLCJuYmYiOjE3MTcwODczMDF9.3cSjqwg-ZOk-5sAav3SZFRSRvQMNROSwV7pRoIfD52E
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzEwNjA5OSwiZXhwIjoxNzE3MTA5Njk5LCJuYmYiOjE3MTcxMDYwOTl9.y5pIumeKwzAhPa3bu-EIYhueUNJUJfqyT-_ZtOJ7BWw
+
+# Add item to cart
+POST {{Bookstore.Web_HostAddress}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "bookId": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
+  "quantity": 1
+}
+
+###
+
+# List items in cart
+GET {{Bookstore.Web_HostAddress}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###

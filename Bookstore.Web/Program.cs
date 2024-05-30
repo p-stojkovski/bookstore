@@ -4,6 +4,7 @@ using FastEndpoints;
 using Serilog;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
+using System.Reflection;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -23,8 +24,13 @@ builder.Services.AddFastEndpoints()
     .SwaggerDocument();
 
 // Add module service
-builder.Services.AddBooksModuleServices(builder.Configuration, logger);
-builder.Services.AddUsersModuleServices(builder.Configuration, logger);
+List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
+builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+
+//Set up MediatR
+builder.Services.AddMediatR(cfg
+    => cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
 var app = builder.Build();
 

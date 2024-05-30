@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.Users;
+namespace Bookstore.Users.Data;
 
-public class UsersDbContext: IdentityDbContext
+public class UsersDbContext : IdentityDbContext
 {
     public UsersDbContext(DbContextOptions<UsersDbContext> options)
         : base(options)
-    { 
+    {
     }
 
     internal DbSet<ApplicationUser> ApplicationUsers { get; set; }

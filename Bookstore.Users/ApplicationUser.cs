@@ -31,6 +31,9 @@ internal class ApplicationUser : IdentityUser
 
 internal class CartItem
 {
+    public CartItem()
+    { }
+
     public CartItem(Guid bookId, string description, int quantity, decimal unitPrice)
     {
         BookId = Guard.Against.Default(bookId); ;
