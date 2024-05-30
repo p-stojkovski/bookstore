@@ -2,14 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace Bookstore.Books;
 
-public static class BookServiceExtensions
+public static class BooksModuleExtensions
 {
-    public static IServiceCollection AddBookServices(
+    public static IServiceCollection AddBooksModuleServices(
         this IServiceCollection services,
-        ConfigurationManager config)
+        ConfigurationManager config, 
+        ILogger logger)
     {
         string? connectionString = config.GetConnectionString("BooksConnectionString");
         services.AddDbContext<BookDbContext>(options =>
@@ -17,6 +19,8 @@ public static class BookServiceExtensions
 
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IBookService, BookService>();
+
+        logger.Information("{Module} module services registered.", "Books");
 
         return services;
     }
