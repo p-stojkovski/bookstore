@@ -11,13 +11,15 @@ public class UsersDbContext: IdentityDbContext
     { 
     }
 
-    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    internal DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("Users");
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

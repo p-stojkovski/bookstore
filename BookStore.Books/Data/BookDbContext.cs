@@ -17,6 +17,8 @@ public class BookDbContext : DbContext
         modelBuilder.HasDefaultSchema("Books");
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

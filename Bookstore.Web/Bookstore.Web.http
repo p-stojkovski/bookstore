@@ -1,4 +1,4 @@
-@Bookstore.Web_HostAddress = http://localhost:5276
+@Bookstore.Web_HostAddress = https://localhost:7074
 
 GET {{Bookstore.Web_HostAddress}}/books/
 Accept: application/json
@@ -37,6 +37,17 @@ Content-Type: application/json
 {
   "id": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
   "price": 1.99
+}
+
+###
+
+POST {{Bookstore.Web_HostAddress}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "petar@test.com",
+  "password": "Pa$$word1"
 }
 
 ###
