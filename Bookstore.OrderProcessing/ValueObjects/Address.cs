@@ -1,6 +1,6 @@
-﻿namespace Bookstore.OrderProcessing;
+﻿namespace Bookstore.OrderProcessing.ValueObjects;
 
-internal record Address(string Street1, 
+internal record Address(string Street1,
     string Street2,
     string City,
     string State,

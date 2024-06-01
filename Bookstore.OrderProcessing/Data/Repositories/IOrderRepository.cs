@@ -1,4 +1,6 @@
-﻿namespace Bookstore.OrderProcessing;
+﻿using Bookstore.OrderProcessing.Entities;
+
+namespace Bookstore.OrderProcessing.Data.Repositories;
 
 internal interface IOrderRepository
 {

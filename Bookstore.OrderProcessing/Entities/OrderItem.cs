@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 
-namespace Bookstore.OrderProcessing;
+namespace Bookstore.OrderProcessing.Entities;
 
 internal class OrderItem
 {

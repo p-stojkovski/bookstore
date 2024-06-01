@@ -1,12 +1,12 @@
 ﻿using Ardalis.Result;
+using Bookstore.OrderProcessing.Data.Repositories;
 using Bookstore.OrderProcessing.OrderEndpoints;
 using MediatR;
 
-namespace Bookstore.OrderProcessing.UseCases;
+namespace Bookstore.OrderProcessing.UseCases.ListOrdersForUser;
 
 internal record ListOrdersForUserQuery(string EmailAddress)
     : IRequest<Result<List<OrderSummary>>>;
-
 
 internal class ListOrdersForUserQueryHandler
     : IRequestHandler<ListOrdersForUserQuery, Result<List<OrderSummary>>>

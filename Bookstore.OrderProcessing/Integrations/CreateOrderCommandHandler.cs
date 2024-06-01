@@ -1,5 +1,7 @@
 ﻿using Ardalis.Result;
 using Bookstore.OrderProcessing.Contracts;
+using Bookstore.OrderProcessing.Data.Repositories;
+using Bookstore.OrderProcessing.Entities;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

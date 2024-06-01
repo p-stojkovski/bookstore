@@ -1,11 +1,12 @@
 ﻿using System.Net.Sockets;
+using Bookstore.OrderProcessing.ValueObjects;
 
-namespace Bookstore.OrderProcessing;
+namespace Bookstore.OrderProcessing.Entities;
 
 internal class Order
 {
     public Guid Id { get; private set; } = Guid.NewGuid();
-    public  Guid UserId { get; private set; }
+    public Guid UserId { get; private set; }
     public Address ShippingAddress { get; private set; } = default!;
     public Address BillingAddress { get; private set; } = default!;
 
@@ -18,8 +19,8 @@ internal class Order
 
     internal class Factory
     {
-        public static Order Create(Guid userId, 
-            Address shippingAddress, 
+        public static Order Create(Guid userId,
+            Address shippingAddress,
             Address billingAddress,
             IEnumerable<OrderItem> orderItems)
         {

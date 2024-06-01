@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using Bookstore.OrderProcessing.Data;
+using Bookstore.OrderProcessing.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

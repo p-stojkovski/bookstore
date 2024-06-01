@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bookstore.OrderProcessing.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.OrderProcessing;
+namespace Bookstore.OrderProcessing.Data.Repositories;
 
-internal class OrderRepository: IOrderRepository
+internal class OrderRepository : IOrderRepository
 {
     private readonly OrderProcessingDbContext _dbContext;
 

@@ -1,6 +1,6 @@
 ﻿using Bookstore.OrderProcessing.OrderEndpoints;
 
-namespace Bookstore.OrderProcessing.UseCases;
+namespace Bookstore.OrderProcessing.UseCases.ListOrdersForUser;
 
 internal class ListOrdersForUserResponse
 {
