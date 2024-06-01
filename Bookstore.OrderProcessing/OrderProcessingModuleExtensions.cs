@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Bookstore.OrderProcessing.Data;
 using Bookstore.OrderProcessing.Data.Repositories;
+using Bookstore.OrderProcessing.Integrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ public static class OrderProcessingModuleExtensions
             options.UseSqlServer(connectionString));
 
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IOrderAddressCache, OrderAddressCache>();
 
         mediatRAssemblies.Add(typeof(OrderProcessingModuleExtensions).Assembly);
 
