@@ -17,12 +17,17 @@ internal class OrderRepository : IOrderRepository
         await _dbContext.Orders.AddAsync(order);
     }
 
-    public async Task<List<Order>> ListAsync()
+    public async Task<List<Order>> ListAsync(bool includeOrderItems = false)
     {
+        var query = _dbContext.Orders.AsQueryable();
+
         // insted of directly using .Include into repository, it's better and flexible to use specification
-        return await _dbContext.Orders
-            .Include(x => x.OrderItems)
-            .ToListAsync();
+        if (includeOrderItems)
+        {
+            query = query.Include(x => x.OrderItems);
+        }
+
+        return await query.Include(x => x.OrderItems).ToListAsync();
     }
 
     public async Task SaveChangesAsync()
