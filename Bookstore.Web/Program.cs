@@ -5,6 +5,7 @@ using Serilog;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using System.Reflection;
+using Bookstore.OrderProcessing;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -27,6 +28,7 @@ builder.Services.AddFastEndpoints()
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 
 //Set up MediatR
 builder.Services.AddMediatR(cfg

@@ -4,12 +4,12 @@ using MediatR;
 
 namespace Bookstore.Users.UseCases;
 
-internal class AddItemToCartHandler : IRequestHandler<AddItemToCartCommand, Result>
+internal class AddItemToCartCommandHandler : IRequestHandler<AddItemToCartCommand, Result>
 {
     private readonly IApplicationUserRepository _userRepository;
     private readonly IMediator _mediator;
 
-    public AddItemToCartHandler(IApplicationUserRepository userRepository, IMediator mediator)
+    public AddItemToCartCommandHandler(IApplicationUserRepository userRepository, IMediator mediator)
     {
         _userRepository = userRepository;
         _mediator = mediator;
