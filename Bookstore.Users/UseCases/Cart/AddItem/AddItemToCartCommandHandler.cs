@@ -2,7 +2,7 @@
 using Bookstore.Books.Contracts;
 using MediatR;
 
-namespace Bookstore.Users.UseCases;
+namespace Bookstore.Users.UseCases.Cart.AddItem;
 
 internal class AddItemToCartCommandHandler : IRequestHandler<AddItemToCartCommand, Result>
 {

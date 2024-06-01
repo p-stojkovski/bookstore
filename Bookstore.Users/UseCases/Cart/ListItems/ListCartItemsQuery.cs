@@ -2,7 +2,7 @@
 using Bookstore.Users.CartEndpoints;
 using MediatR;
 
-namespace Bookstore.Users.UseCases;
+namespace Bookstore.Users.UseCases.Cart.ListItems;
 
 internal record ListCartItemsQuery(string EmailAddress) : IRequest<Result<List<CartItemDto>>>;
 
@@ -10,7 +10,7 @@ internal class ListCartItemsQueryHandler : IRequestHandler<ListCartItemsQuery, R
 {
     private readonly IApplicationUserRepository _userRepository;
 
-    public ListCartItemsQueryHandler(IApplicationUserRepository userRepository) 
+    public ListCartItemsQueryHandler(IApplicationUserRepository userRepository)
         => _userRepository = userRepository;
 
     public async Task<Result<List<CartItemDto>>> Handle(ListCartItemsQuery request, CancellationToken cancellationToken)

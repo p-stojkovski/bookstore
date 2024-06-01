@@ -24,8 +24,7 @@ Content-Type: application/json
 
 ###
 
-@BookID=b29b0d03-75bd-4590-a0c6-bec4bcc2908e
-DELETE {{Bookstore.Web_HostAddress}}/books/{{BookID}}
+DELETE {{Bookstore.Web_HostAddress}}/books/b29b0d03-75bd-4590-a0c6-bec4bcc2908e
 Accept: application/json
 
 ###
@@ -64,7 +63,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzIyNTUwNywiZXhwIjoxNzE3MjI5MTA3LCJuYmYiOjE3MTcyMjU1MDd9.dfifg1-K7dQ2WLhWjSRuSgkmcNCX01qox4cxtC9TsZU
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzIyODQzMiwiZXhwIjoxNzE3MjMyMDMyLCJuYmYiOjE3MTcyMjg0MzJ9.-nVi8TwXbjoTeCzfgQo5tilxYui3RL2ec5tbWn0HnlA
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -73,7 +72,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "bookId": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
+  "bookId": "A29B0D03-75BD-4590-A0C6-BEC4BCC2908E",
   "quantity": 1
 }
 
@@ -90,5 +89,18 @@ Authorization: Bearer {{token}}
 GET {{Bookstore.Web_HostAddress}}/orders
 Accept: application/json
 Authorization: Bearer {{token}}
+
+###
+
+# Checkout Cart
+POST {{Bookstore.Web_HostAddress}}/cart/checkout
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "shippingAddressId":"ebec948f-2026-4b40-bbf5-25df38ccd3b1",
+  "billingAddressId":"ebec948f-2026-4b40-bbf5-25df38ccd3b1"
+}
 
 ###

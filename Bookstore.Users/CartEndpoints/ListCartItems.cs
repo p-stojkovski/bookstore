@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
 using Bookstore.Users.UseCases;
+using Bookstore.Users.UseCases.Cart.ListItems;
 using FastEndpoints;
 using MediatR;
 

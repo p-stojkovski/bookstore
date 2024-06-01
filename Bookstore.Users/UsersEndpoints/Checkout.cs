@@ -5,32 +5,31 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
-using Bookstore.Users.UseCases;
-using Bookstore.Users.UseCases.Cart.AddItem;
-using Bookstore.Users.UsersEndpoints;
+using Bookstore.Users.UseCases.Cart.Checkout;
 using FastEndpoints;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.CartEndpoints;
+namespace Bookstore.Users.UsersEndpoints;
 
-internal class AddItem : Endpoint<AddCartItemRequest>
+internal record CheckoutRequest(Guid ShippingAddressId, Guid BillingAddressId);
+internal record CheckoutResponse(Guid NewOrderId);
+
+internal class Checkout : Endpoint<CheckoutRequest, CheckoutResponse>
 {
     private readonly IMediator _mediator;
 
-    public AddItem(IMediator mediator)
+    public Checkout(IMediator mediator)
     {
         _mediator = mediator;
     }
 
     public override void Configure()
     {
-        Post("/cart");
+        Post("/cart/checkout");
         Claims("EmailAddress");
     }
 
-    public override async Task HandleAsync(AddCartItemRequest request,
-        CancellationToken cancellationToken = default)
+    public override async Task HandleAsync(CheckoutRequest request, CancellationToken cancellationToken = default)
     {
         var emailAddress = User.FindFirstValue("EmailAddress");
         if (emailAddress is null)
@@ -39,17 +38,18 @@ internal class AddItem : Endpoint<AddCartItemRequest>
             return;
         }
 
-        var command = new AddItemToCartCommand(request.BookId, request.Quantity, emailAddress);
+        var command = new CheckoutCartCommand(emailAddress,
+            request.ShippingAddressId,
+            request.BillingAddressId);
 
         var result = await _mediator.Send(command, cancellationToken);
-
         if (result.Status is ResultStatus.Unauthorized)
         {
             await SendUnauthorizedAsync();
             return;
         }
 
-        await SendOkAsync();
+        await SendOkAsync(new CheckoutResponse(result.Value));
     }
 }
 
