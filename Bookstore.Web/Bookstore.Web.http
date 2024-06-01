@@ -63,7 +63,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzIyODQzMiwiZXhwIjoxNzE3MjMyMDMyLCJuYmYiOjE3MTcyMjg0MzJ9.-nVi8TwXbjoTeCzfgQo5tilxYui3RL2ec5tbWn0HnlA
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzIzODUwOCwiZXhwIjoxNzE3MjQyMTA4LCJuYmYiOjE3MTcyMzg1MDh9.iX1neqBBEkp0qXSb4fgBN9DxKAQ6X5nf8A42D_JI3w4
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -99,8 +99,30 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "shippingAddressId":"ebec948f-2026-4b40-bbf5-25df38ccd3b1",
-  "billingAddressId":"ebec948f-2026-4b40-bbf5-25df38ccd3b1"
+  "shippingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74",
+  "billingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74"
 }
 
 ###
+
+# List Addresses
+GET {{Bookstore.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# Add address to user
+POST {{Bookstore.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "street1":"1234",
+  "street2":"br. 12",
+  "city":"Skopje",
+  "state":"MK",
+  "postalCode":"1000",
+  "country":"Macedonia"
+}

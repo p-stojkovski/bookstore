@@ -1,4 +1,5 @@
-﻿using Ardalis.GuardClauses;
+﻿using System.Net.Sockets;
+using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Identity;
 
 namespace Bookstore.Users;
@@ -9,6 +10,10 @@ internal class ApplicationUser : IdentityUser
 
     private readonly List<CartItem> _cartItems = new();
     public IReadOnlyCollection<CartItem> CartItems => _cartItems.AsReadOnly();
+
+
+    private readonly List<UserStreetAddress> _addresses = new();
+    public IReadOnlyCollection<UserStreetAddress> Addresses => _addresses.AsReadOnly();
 
     internal void AddItemToCart(CartItem item)
     {
@@ -27,44 +32,24 @@ internal class ApplicationUser : IdentityUser
         _cartItems.Add(item);
     }
 
+    internal UserStreetAddress AddAddress(Address address)
+    {
+        Guard.Against.Null(address);
+
+        var existingAddress = _addresses.SingleOrDefault(x => x.StreetAddress == address);
+        if (existingAddress is not null)
+        {
+            return existingAddress;
+        }
+
+        var newAddress = new UserStreetAddress(Id, address);
+        _addresses.Add(newAddress);
+
+        return newAddress;
+    }
+
     internal void ClearCart()
     {
         _cartItems.Clear();
     }
 }
-
-public class CartItem
-{
-    public CartItem()
-    { }
-
-    public CartItem(Guid bookId, string description, int quantity, decimal unitPrice)
-    {
-        BookId = Guard.Against.Default(bookId); ;
-        Description = Guard.Against.NullOrEmpty(description);
-        Quantity = Guard.Against.Negative(quantity);
-        UnitPrice = Guard.Against.Negative(unitPrice);
-    }
-
-    public Guid Id { get; private set; } = Guid.NewGuid();
-    public Guid BookId { get; private set; }
-    public string Description { get; private set; } = string.Empty;
-    public int Quantity { get; private set; }
-    public decimal UnitPrice { get; private set; }
-
-    internal void UpdateQuantity(int quantity)
-    {
-        Quantity = Guard.Against.Negative(quantity);
-    }
-
-    internal void UpdateDescription(string description)
-    {
-        Description = Guard.Against.NullOrEmpty(description);
-    }
-
-    internal void UpdateUnitPrice(decimal unitPrice)
-    {
-       UnitPrice = Guard.Against.Negative(unitPrice);
-    }
-}
-
