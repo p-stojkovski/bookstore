@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bookstore.Users.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bookstore.Users.Data;
 

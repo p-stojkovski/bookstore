@@ -1,4 +1,6 @@
-﻿namespace Bookstore.Users;
+﻿using Bookstore.Users.Entities;
+
+namespace Bookstore.Users;
 
 internal interface IApplicationUserRepository
 {

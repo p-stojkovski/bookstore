@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Bookstore.Users.Data;
+using Bookstore.Users.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

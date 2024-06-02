@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users;
+namespace Bookstore.Users.Entities;
 
 internal class ApplicationUser : IdentityUser, IDomainEvents
 {

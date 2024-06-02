@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 
-namespace Bookstore.Users;
+namespace Bookstore.Users.Entities;
 
 public class UserStreetAddress
 {

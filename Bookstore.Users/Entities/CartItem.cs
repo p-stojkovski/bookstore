@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 
-namespace Bookstore.Users;
+namespace Bookstore.Users.Entities;
 
 public class CartItem
 {
@@ -33,7 +33,7 @@ public class CartItem
 
     internal void UpdateUnitPrice(decimal unitPrice)
     {
-       UnitPrice = Guard.Against.Negative(unitPrice);
+        UnitPrice = Guard.Against.Negative(unitPrice);
     }
 }
 
