@@ -2,7 +2,6 @@
 using Bookstore.OrderProcessing.Contracts;
 using Bookstore.OrderProcessing.Data.Repositories;
 using Bookstore.OrderProcessing.Entities;
-using Bookstore.OrderProcessing.ValueObjects;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -14,7 +13,7 @@ internal class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, R
     private readonly ILogger<CreateOrderCommandHandler> _logger;
     private readonly IOrderAddressCache _addressCache;
 
-    public CreateOrderCommandHandler(IOrderRepository orderRepository, 
+    public CreateOrderCommandHandler(IOrderRepository orderRepository,
         ILogger<CreateOrderCommandHandler> logger,
         IOrderAddressCache addressCache)
     {
