@@ -21,15 +21,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users Module", "Users Modul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Users", "Bookstore.Users\Bookstore.Users.csproj", "{73552A54-11AD-4720-AE1E-15E37FF45FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Books.Contracts", "Bookstore.Books.Contracts\Bookstore.Books.Contracts.csproj", "{E175CBA2-1D64-49A2-9730-01F91B003484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Books.Contracts", "Bookstore.Books.Contracts\Bookstore.Books.Contracts.csproj", "{E175CBA2-1D64-49A2-9730-01F91B003484}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderProcesssing Module", "OrderProcesssing Module", "{9EA40229-AE7E-4D57-B5F5-8881FEFA0F1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.OrderProcessing", "Bookstore.OrderProcessing\Bookstore.OrderProcessing.csproj", "{BCFBB627-C3B2-4B12-8A42-91AEFF812E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.OrderProcessing", "Bookstore.OrderProcessing\Bookstore.OrderProcessing.csproj", "{BCFBB627-C3B2-4B12-8A42-91AEFF812E65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.OrderProcessing.Contracts", "Bookstore.OrderProcessing.Contracts\Bookstore.OrderProcessing.Contracts.csproj", "{CF2A0759-3B77-4FCB-BC71-7E9157D09575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.OrderProcessing.Contracts", "Bookstore.OrderProcessing.Contracts\Bookstore.OrderProcessing.Contracts.csproj", "{CF2A0759-3B77-4FCB-BC71-7E9157D09575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Users.Contracts", "Bookstore.Users.Contracts\Bookstore.Users.Contracts.csproj", "{C5EED74F-6611-4A72-B4C4-26FE1F1B4F6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookstore.Users.Contracts", "Bookstore.Users.Contracts\Bookstore.Users.Contracts.csproj", "{C5EED74F-6611-4A72-B4C4-26FE1F1B4F6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

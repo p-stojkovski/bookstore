@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace Bookstore.OrderProcessing.Integrations;
+
 internal class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Result<OrderDetailsResponse>>
 {
     private readonly IOrderRepository _orderRepository;

@@ -5,8 +5,7 @@ Accept: application/json
 
 ###
 
-@BookID=a29b0d03-75bd-4590-a0c6-bec4bcc2908e
-GET {{Bookstore.Web_HostAddress}}/books/{{BookID}}
+GET {{Bookstore.Web_HostAddress}}/books/a29b0d03-75bd-4590-a0c6-bec4bcc2908e
 Accept: application/json
 
 ###
@@ -63,7 +62,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzMxMjc5NSwiZXhwIjoxNzE3MzE2Mzk1LCJuYmYiOjE3MTczMTI3OTV9.YnON4zsoQjR1P1FliqfgWw-Km8eWqTKWCbTajY80obM
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzMxNjcyMywiZXhwIjoxNzE3MzIwMzIzLCJuYmYiOjE3MTczMTY3MjN9.pAgd09-0IxXUnAHbBMpgYD9A3dROaGjlBk2JzPxRGJ0
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -99,8 +98,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "shippingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74",
-  "billingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74"
+  "shippingAddressId":"772b0919-33ab-49cc-947d-0d183ce71cc4",
+  "billingAddressId":"772b0919-33ab-49cc-947d-0d183ce71cc4"
 }
 
 ###
@@ -119,7 +118,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "street1":"Test",
+  "street1":"Test 2",
   "street2":"br. 2",
   "city":"Skopje",
   "state":"MK",
