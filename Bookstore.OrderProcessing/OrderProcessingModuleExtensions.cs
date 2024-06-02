@@ -21,7 +21,8 @@ public static class OrderProcessingModuleExtensions
             options.UseSqlServer(connectionString));
 
         services.AddScoped<IOrderRepository, OrderRepository>();
-        services.AddScoped<IOrderAddressCache, OrderAddressCache>();
+        services.AddScoped<OrderAddressCache>();
+        services.AddScoped<IOrderAddressCache, ReadThroughOrderAddressCache>();
 
         mediatRAssemblies.Add(typeof(OrderProcessingModuleExtensions).Assembly);
 
