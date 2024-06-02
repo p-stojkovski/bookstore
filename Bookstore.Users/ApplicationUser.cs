@@ -1,10 +1,11 @@
-﻿using System.Net.Sockets;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Sockets;
 using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Identity;
 
 namespace Bookstore.Users;
 
-internal class ApplicationUser : IdentityUser
+internal class ApplicationUser : IdentityUser, IDomainEvents
 {
     public string FullName { get; set; } = string.Empty;
 
@@ -14,6 +15,13 @@ internal class ApplicationUser : IdentityUser
 
     private readonly List<UserStreetAddress> _addresses = new();
     public IReadOnlyCollection<UserStreetAddress> Addresses => _addresses.AsReadOnly();
+
+    private readonly List<DomainEventBase> _domainEvents = new();
+    [NotMapped]
+    public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
+
+    protected void RegisterDomainEvent(DomainEventBase domainEvent) => _domainEvents.Add(domainEvent);
+    void IDomainEvents.ClearDomainEvents() => _domainEvents.Clear();
 
     internal void AddItemToCart(CartItem item)
     {
@@ -45,11 +53,19 @@ internal class ApplicationUser : IdentityUser
         var newAddress = new UserStreetAddress(Id, address);
         _addresses.Add(newAddress);
 
+        var domainEvent = new AddressAddedEvent(newAddress);
+        RegisterDomainEvent(domainEvent);
+
         return newAddress;
     }
 
     internal void ClearCart()
     {
         _cartItems.Clear();
+    }
+
+    public void ClearDomainEvents()
+    {
+        throw new NotImplementedException();
     }
 }

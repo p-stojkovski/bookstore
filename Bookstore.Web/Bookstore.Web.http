@@ -63,7 +63,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzIzODUwOCwiZXhwIjoxNzE3MjQyMTA4LCJuYmYiOjE3MTcyMzg1MDh9.iX1neqBBEkp0qXSb4fgBN9DxKAQ6X5nf8A42D_JI3w4
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzMxMjc5NSwiZXhwIjoxNzE3MzE2Mzk1LCJuYmYiOjE3MTczMTI3OTV9.YnON4zsoQjR1P1FliqfgWw-Km8eWqTKWCbTajY80obM
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -119,8 +119,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "street1":"1234",
-  "street2":"br. 12",
+  "street1":"Test",
+  "street2":"br. 2",
   "city":"Skopje",
   "state":"MK",
   "postalCode":"1000",
