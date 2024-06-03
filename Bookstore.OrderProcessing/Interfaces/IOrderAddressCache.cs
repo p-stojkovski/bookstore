@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
+using Bookstore.OrderProcessing.Infrastructure;
 
-namespace Bookstore.OrderProcessing.Integrations;
+namespace Bookstore.OrderProcessing.Interfaces;
 
 internal interface IOrderAddressCache
 {

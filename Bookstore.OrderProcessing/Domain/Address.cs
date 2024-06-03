@@ -1,4 +1,4 @@
-﻿namespace Bookstore.OrderProcessing.ValueObjects;
+﻿namespace Bookstore.OrderProcessing.Domain;
 
 internal record Address(string Street1,
     string Street2,

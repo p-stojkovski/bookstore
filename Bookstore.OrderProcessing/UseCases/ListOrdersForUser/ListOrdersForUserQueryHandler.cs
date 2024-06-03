@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using Bookstore.OrderProcessing.Data.Repositories;
+using Bookstore.OrderProcessing.Interfaces;
 using Bookstore.OrderProcessing.OrderEndpoints;
 using MediatR;
 

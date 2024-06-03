@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-using Bookstore.OrderProcessing.Data;
-using Bookstore.OrderProcessing.Data.Repositories;
-using Bookstore.OrderProcessing.Integrations;
+using Bookstore.OrderProcessing.Infrastructure;
+using Bookstore.OrderProcessing.Infrastructure.Data;
+using Bookstore.OrderProcessing.Infrastructure.Data.Repositories;
+using Bookstore.OrderProcessing.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +23,7 @@ public static class OrderProcessingModuleExtensions
 
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<OrderAddressCache>();
-        services.AddScoped<IOrderAddressCache, ReadThroughOrderAddressCache>();
+        services.AddScoped<IOrderAddressCache, OrderAddressCacheDecorator>();
 
         mediatRAssemblies.Add(typeof(OrderProcessingModuleExtensions).Assembly);
 

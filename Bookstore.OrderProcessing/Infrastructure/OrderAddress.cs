@@ -1,6 +1,6 @@
-﻿using Bookstore.OrderProcessing.ValueObjects;
+﻿using Bookstore.OrderProcessing.Domain;
 
-namespace Bookstore.OrderProcessing.Integrations;
+namespace Bookstore.OrderProcessing.Infrastructure;
 
 // This is materialized view's data model
 internal record OrderAddress(Guid Id, Address Address);

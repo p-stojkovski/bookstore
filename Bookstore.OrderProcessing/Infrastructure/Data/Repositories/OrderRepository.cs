@@ -1,7 +1,9 @@
-﻿using Bookstore.OrderProcessing.Entities;
+﻿using Bookstore.OrderProcessing.Domain;
+using Bookstore.OrderProcessing.Infrastructure.Data;
+using Bookstore.OrderProcessing.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.OrderProcessing.Data.Repositories;
+namespace Bookstore.OrderProcessing.Infrastructure.Data.Repositories;
 
 internal class OrderRepository : IOrderRepository
 {

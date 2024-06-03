@@ -1,8 +1,8 @@
-﻿using Bookstore.OrderProcessing.Entities;
+﻿using Bookstore.OrderProcessing.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Bookstore.OrderProcessing.Data.Configurations;
+namespace Bookstore.OrderProcessing.Infrastructure.Data.Configurations;
 
 public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {

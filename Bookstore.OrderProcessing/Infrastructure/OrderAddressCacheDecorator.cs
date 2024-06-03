@@ -1,20 +1,21 @@
 ﻿using Ardalis.Result;
-using Bookstore.OrderProcessing.ValueObjects;
+using Bookstore.OrderProcessing.Domain;
+using Bookstore.OrderProcessing.Interfaces;
 using Bookstore.Users.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Bookstore.OrderProcessing.Integrations;
+namespace Bookstore.OrderProcessing.Infrastructure;
 
-internal class ReadThroughOrderAddressCache : IOrderAddressCache
+internal class OrderAddressCacheDecorator : IOrderAddressCache
 {
     private readonly OrderAddressCache _orderAddressCache;
     private readonly IMediator _mediator;
-    private readonly ILogger<ReadThroughOrderAddressCache> _logger;
+    private readonly ILogger<OrderAddressCacheDecorator> _logger;
 
-    public ReadThroughOrderAddressCache(OrderAddressCache orderAddressCache,
+    public OrderAddressCacheDecorator(OrderAddressCache orderAddressCache,
         IMediator mediator,
-        ILogger<ReadThroughOrderAddressCache> logger)
+        ILogger<OrderAddressCacheDecorator> logger)
     {
         _orderAddressCache = orderAddressCache;
         _mediator = mediator;
@@ -39,7 +40,7 @@ internal class ReadThroughOrderAddressCache : IOrderAddressCache
             if (queryResult.IsSuccess)
             {
                 var dto = queryResult.Value;
-                var address = new Address(dto.Street1, 
+                var address = new Address(dto.Street1,
                     dto.Street2,
                     dto.City,
                     dto.State,

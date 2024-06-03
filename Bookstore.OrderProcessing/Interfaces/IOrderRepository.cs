@@ -1,6 +1,6 @@
-﻿using Bookstore.OrderProcessing.Entities;
+﻿using Bookstore.OrderProcessing.Domain;
 
-namespace Bookstore.OrderProcessing.Data.Repositories;
+namespace Bookstore.OrderProcessing.Interfaces;
 
 internal interface IOrderRepository
 {

@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
-using Bookstore.OrderProcessing.Entities;
+using Bookstore.OrderProcessing.Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.OrderProcessing.Data;
+namespace Bookstore.OrderProcessing.Infrastructure.Data;
 
 internal class OrderProcessingDbContext : DbContext
 {

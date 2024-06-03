@@ -1,4 +1,6 @@
-﻿using Bookstore.OrderProcessing.ValueObjects;
+﻿using Bookstore.OrderProcessing.Domain;
+using Bookstore.OrderProcessing.Infrastructure;
+using Bookstore.OrderProcessing.Interfaces;
 using Bookstore.Users.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;

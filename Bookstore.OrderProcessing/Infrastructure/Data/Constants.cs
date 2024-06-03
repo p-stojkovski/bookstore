@@ -1,4 +1,4 @@
-﻿namespace Bookstore.OrderProcessing;
+﻿namespace Bookstore.OrderProcessing.Infrastructure.Data;
 
 internal static class Constants
 {

@@ -1,7 +1,6 @@
 ﻿using System.Net.Sockets;
-using Bookstore.OrderProcessing.ValueObjects;
 
-namespace Bookstore.OrderProcessing.Entities;
+namespace Bookstore.OrderProcessing.Domain;
 
 internal class Order
 {

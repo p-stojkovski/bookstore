@@ -1,9 +1,10 @@
 ﻿using System.Text.Json;
 using Ardalis.Result;
+using Bookstore.OrderProcessing.Interfaces;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 
-namespace Bookstore.OrderProcessing.Integrations;
+namespace Bookstore.OrderProcessing.Infrastructure;
 
 internal class OrderAddressCache : IOrderAddressCache
 {
