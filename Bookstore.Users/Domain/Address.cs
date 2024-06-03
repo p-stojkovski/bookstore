@@ -1,4 +1,4 @@
-﻿namespace Bookstore.Users;
+﻿namespace Bookstore.Users.Domain;
 
 public record Address(string Street1,
     string Street2,

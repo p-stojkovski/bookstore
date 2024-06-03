@@ -1,5 +1,6 @@
 ﻿using Ardalis.Result;
 using Bookstore.OrderProcessing.Contracts;
+using Bookstore.Users.Interfaces;
 using MediatR;
 
 namespace Bookstore.Users.UseCases.Cart.Checkout;

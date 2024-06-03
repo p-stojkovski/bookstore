@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 using Ardalis.GuardClauses;
+using Bookstore.Users.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.Entities;
+namespace Bookstore.Users.Domain;
 
 internal class ApplicationUser : IdentityUser, IDomainEvents
 {

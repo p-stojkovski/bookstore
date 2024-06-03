@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
 using Bookstore.Books.Contracts;
-using Bookstore.Users.Entities;
+using Bookstore.Users.Domain;
+using Bookstore.Users.Interfaces;
 using MediatR;
 
 namespace Bookstore.Users.UseCases.Cart.AddItem;

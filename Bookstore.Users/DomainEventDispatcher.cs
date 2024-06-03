@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Bookstore.Users.Interfaces;
+using MediatR;
 
 namespace Bookstore.Users;
 

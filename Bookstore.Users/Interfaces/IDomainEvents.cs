@@ -1,4 +1,6 @@
-﻿namespace Bookstore.Users;
+﻿using Bookstore.Users.Domain;
+
+namespace Bookstore.Users.Interfaces;
 
 public interface IDomainEvents
 {

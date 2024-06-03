@@ -1,5 +1,6 @@
 ﻿using Ardalis.Result;
 using Bookstore.Users.CartEndpoints;
+using Bookstore.Users.Interfaces;
 using MediatR;
 
 namespace Bookstore.Users.UseCases.Cart.ListItems;

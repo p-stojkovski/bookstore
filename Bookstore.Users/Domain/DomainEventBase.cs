@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Bookstore.Users;
+namespace Bookstore.Users.Domain;
 
 public abstract class DomainEventBase : INotification
 {

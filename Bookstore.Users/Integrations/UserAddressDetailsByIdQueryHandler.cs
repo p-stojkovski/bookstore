@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
 using Bookstore.Users.Contracts;
+using Bookstore.Users.Interfaces;
 using FastEndpoints;
 using MediatR;
 

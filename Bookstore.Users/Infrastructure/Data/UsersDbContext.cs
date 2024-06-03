@@ -1,9 +1,10 @@
 ﻿using System.Reflection;
-using Bookstore.Users.Entities;
+using Bookstore.Users.Domain;
+using Bookstore.Users.Interfaces;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.Users.Data;
+namespace Bookstore.Users.Infrastructure.Data;
 
 public class UsersDbContext : IdentityDbContext
 {
@@ -35,7 +36,7 @@ public class UsersDbContext : IdentityDbContext
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        var result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         if (result == 0)
         {
             return result;

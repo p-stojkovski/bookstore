@@ -1,7 +1,8 @@
-﻿using Bookstore.Users.Entities;
+﻿using Bookstore.Users.Domain;
+using Bookstore.Users.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bookstore.Users.Data;
+namespace Bookstore.Users.Infrastructure.Data.Repositories;
 
 internal class ApplicationUserRepository : IApplicationUserRepository
 {

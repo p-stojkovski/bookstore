@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
+using Bookstore.Users.Domain;
+using Bookstore.Users.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

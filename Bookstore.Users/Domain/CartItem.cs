@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 
-namespace Bookstore.Users.Entities;
+namespace Bookstore.Users.Domain;
 
 public class CartItem
 {

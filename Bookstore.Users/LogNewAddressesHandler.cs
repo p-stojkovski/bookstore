@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Bookstore.Users.Domain;
+using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace Bookstore.Users;

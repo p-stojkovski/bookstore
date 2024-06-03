@@ -1,8 +1,6 @@
-﻿using Bookstore.Users.Entities;
+﻿namespace Bookstore.Users.Domain;
 
-namespace Bookstore.Users;
-
-internal sealed class AddressAddedEvent: DomainEventBase
+internal sealed class AddressAddedEvent : DomainEventBase
 {
     public AddressAddedEvent(UserStreetAddress newAddress)
     {

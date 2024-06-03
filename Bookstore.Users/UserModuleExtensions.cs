@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
-using Bookstore.Users.Data;
-using Bookstore.Users.Entities;
+using Bookstore.Users.Domain;
+using Bookstore.Users.Infrastructure.Data;
+using Bookstore.Users.Infrastructure.Data.Repositories;
+using Bookstore.Users.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

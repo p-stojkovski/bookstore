@@ -1,4 +1,5 @@
 ﻿using Bookstore.Users.Contracts;
+using Bookstore.Users.Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
