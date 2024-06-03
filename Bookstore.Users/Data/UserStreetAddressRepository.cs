@@ -15,7 +15,6 @@ internal class UserStreetAddressRepository : IReadOnlyUserStreetAddressRepositor
     public async Task<UserStreetAddress?> GetById(Guid userStreetAddressId)
     {
         return await _dbContext.UserStreetAddresses
-            .Include(x => x.StreetAddress)
             .SingleOrDefaultAsync(x => x.Id == userStreetAddressId);
     }
 }

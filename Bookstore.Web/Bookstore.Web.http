@@ -62,7 +62,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzMxNjcyMywiZXhwIjoxNzE3MzIwMzIzLCJuYmYiOjE3MTczMTY3MjN9.pAgd09-0IxXUnAHbBMpgYD9A3dROaGjlBk2JzPxRGJ0
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzQ0NjA0NSwiZXhwIjoxNzE3NDQ5NjQ1LCJuYmYiOjE3MTc0NDYwNDV9.g-KsQS_lkMPETItzcnhroxYk-Us4gLZyNfgEOiXH3J8
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -71,7 +71,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "bookId": "A29B0D03-75BD-4590-A0C6-BEC4BCC2908E",
+  "bookId": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
   "quantity": 1
 }
 
@@ -98,8 +98,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "shippingAddressId":"772b0919-33ab-49cc-947d-0d183ce71cc4",
-  "billingAddressId":"772b0919-33ab-49cc-947d-0d183ce71cc4"
+  "shippingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74",
+  "billingAddressId":"576a3ca3-d5d9-4acb-84ba-136402a8ce74"
 }
 
 ###
@@ -118,10 +118,20 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "street1":"Test 2",
+  "street1":"Test 4",
   "street2":"br. 2",
   "city":"Skopje",
   "state":"MK",
   "postalCode":"1000",
   "country":"Macedonia"
+}
+
+###
+
+# Flush redis cache
+POST {{Bookstore.Web_HostAddress}}/flush-cache
+Accept: application/json
+Content-Type: application/json
+
+{
 }
