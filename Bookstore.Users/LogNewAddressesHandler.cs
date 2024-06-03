@@ -1,4 +1,4 @@
-﻿using Bookstore.Users.Domain;
+﻿using Bookstore.Users.Domain.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
