@@ -1,7 +1,6 @@
-﻿using Bookstore.Users.Interfaces;
-using MediatR;
+﻿using MediatR;
 
-namespace Bookstore.Users;
+namespace Bookstore.SharedKernel;
 
 public class DomainEventDispatcher : IDomainEventDispatcher
 {

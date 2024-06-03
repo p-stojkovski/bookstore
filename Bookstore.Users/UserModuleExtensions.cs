@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Bookstore.SharedKernel;
 using Bookstore.Users.Domain;
 using Bookstore.Users.Infrastructure.Data;
 using Bookstore.Users.Infrastructure.Data.Repositories;
@@ -26,7 +27,6 @@ public static class UserModuleExtensions
 
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
         services.AddScoped<IReadOnlyUserStreetAddressRepository, UserStreetAddressRepository>();
-        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 
         mediatRAssemblies.Add(typeof(UserModuleExtensions).Assembly);
 

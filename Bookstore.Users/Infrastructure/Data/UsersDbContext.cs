@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Bookstore.SharedKernel;
 using Bookstore.Users.Domain;
 using Bookstore.Users.Interfaces;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

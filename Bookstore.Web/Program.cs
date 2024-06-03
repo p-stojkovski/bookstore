@@ -6,6 +6,7 @@ using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using System.Reflection;
 using Bookstore.OrderProcessing;
+using Bookstore.SharedKernel;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -30,9 +31,11 @@ builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAs
 builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 
-//Set up MediatR
+// Set up MediatR
 builder.Services.AddMediatR(cfg
     => cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
+// Add MediatR Domain Event Dispatcher
+builder.Services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿namespace Bookstore.Users.Interfaces;
+﻿namespace Bookstore.SharedKernel;
 
 public interface IDomainEventDispatcher
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Bookstore.Users.Contracts;
+namespace Bookstore.SharedKernel;
 
 public abstract record IntegrationEventBase : INotification
 {

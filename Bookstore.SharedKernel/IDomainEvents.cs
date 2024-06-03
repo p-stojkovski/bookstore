@@ -1,6 +1,4 @@
-﻿using Bookstore.Users.Domain;
-
-namespace Bookstore.Users.Interfaces;
+﻿namespace Bookstore.SharedKernel;
 
 public interface IDomainEvents
 {

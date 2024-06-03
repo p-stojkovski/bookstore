@@ -1,4 +1,6 @@
-﻿namespace Bookstore.Users.Domain;
+﻿using Bookstore.SharedKernel;
+
+namespace Bookstore.Users.Domain;
 
 internal sealed class AddressAddedEvent : DomainEventBase
 {

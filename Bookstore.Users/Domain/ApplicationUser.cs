@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Sockets;
 using Ardalis.GuardClauses;
+using Bookstore.SharedKernel;
 using Bookstore.Users.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
