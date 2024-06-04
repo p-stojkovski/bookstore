@@ -7,6 +7,7 @@ using FastEndpoints.Swagger;
 using System.Reflection;
 using Bookstore.OrderProcessing;
 using Bookstore.SharedKernel;
+using Bookstore.Users.UseCases.Cart.AddItem;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -35,6 +36,9 @@ builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger,
 builder.Services.AddMediatR(cfg
     => cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 builder.Services.AddMediatRLoggingBehavior();
+builder.Services.AddMediatRValidationBehavior();
+builder.Services.AddValidatorsFromAssemblyContaining<AddItemToCartCommandValidator>();
+
 // Add MediatR Domain Event Dispatcher
 builder.Services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 
