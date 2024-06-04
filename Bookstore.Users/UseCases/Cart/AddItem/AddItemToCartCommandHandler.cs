@@ -3,6 +3,7 @@ using Bookstore.Books.Contracts;
 using Bookstore.Users.Domain;
 using Bookstore.Users.Interfaces;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace Bookstore.Users.UseCases.Cart.AddItem;
 
