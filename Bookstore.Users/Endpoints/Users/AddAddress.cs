@@ -10,9 +10,9 @@ using FastEndpoints;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.UsersEndpoints;
+namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
-internal record AddAddressRequest(string Street1, 
+internal record AddAddressRequest(string Street1,
     string Street2,
     string City,
     string State,

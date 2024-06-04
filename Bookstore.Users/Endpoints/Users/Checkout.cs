@@ -9,7 +9,7 @@ using Bookstore.Users.UseCases.Cart.Checkout;
 using FastEndpoints;
 using MediatR;
 
-namespace Bookstore.Users.UsersEndpoints;
+namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
 internal record CheckoutRequest(Guid ShippingAddressId, Guid BillingAddressId);
 internal record CheckoutResponse(Guid NewOrderId);

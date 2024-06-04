@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using Bookstore.Users.CartEndpoints;
+using Bookstore.Users.Endpoints.CartEndpoints;
 using Bookstore.Users.Interfaces;
 using MediatR;
 

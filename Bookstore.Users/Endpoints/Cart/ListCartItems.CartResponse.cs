@@ -1,4 +1,6 @@
-﻿namespace Bookstore.Users.CartEndpoints;
+﻿using Bookstore.Users.Endpoints.CartEndpoints;
+
+namespace Bookstore.Users.CartEndpoints;
 
 internal class CartResponse
 {

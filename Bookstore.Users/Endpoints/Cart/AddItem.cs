@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
+using Ardalis.Result.AspNetCore;
+using Bookstore.Users.CartEndpoints;
 using Bookstore.Users.UseCases;
 using Bookstore.Users.UseCases.Cart.AddItem;
 using Bookstore.Users.UsersEndpoints;
@@ -12,7 +14,7 @@ using FastEndpoints;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.CartEndpoints;
+namespace Bookstore.Users.Endpoints.CartEndpoints;
 
 internal class AddItem : Endpoint<AddCartItemRequest>
 {
@@ -42,10 +44,15 @@ internal class AddItem : Endpoint<AddCartItemRequest>
         var command = new AddItemToCartCommand(request.BookId, request.Quantity, emailAddress);
 
         var result = await _mediator.Send(command, cancellationToken);
-
         if (result.Status is ResultStatus.Unauthorized)
         {
             await SendUnauthorizedAsync();
+            return;
+        }
+
+        if (result.Status is ResultStatus.Invalid)
+        {
+            await SendResultAsync(result.ToMinimalApiResult());
             return;
         }
 

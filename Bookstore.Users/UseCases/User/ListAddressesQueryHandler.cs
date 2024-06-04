@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
+using Bookstore.Users.Endpoints.UsersEndpoints;
 using Bookstore.Users.Interfaces;
-using Bookstore.Users.UsersEndpoints;
 using MediatR;
 
 namespace Bookstore.Users.UseCases.User;

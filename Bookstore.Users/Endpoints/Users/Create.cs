@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bookstore.Users.Domain;
+using Bookstore.Users.UsersEndpoints;
 using FastEndpoints;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.UsersEndpoints;
+namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
 internal class Create : Endpoint<CreateUserRequest>
 {
@@ -28,9 +29,9 @@ internal class Create : Endpoint<CreateUserRequest>
     public override async Task HandleAsync(CreateUserRequest request,
         CancellationToken cancellationToken = default)
     {
-        var newUser = new ApplicationUser 
-        { 
-            Email = request.Email, 
+        var newUser = new ApplicationUser
+        {
+            Email = request.Email,
             UserName = request.Email
         };
 

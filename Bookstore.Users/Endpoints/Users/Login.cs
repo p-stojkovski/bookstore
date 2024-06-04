@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bookstore.Users.Domain;
+using Bookstore.Users.UsersEndpoints;
 using FastEndpoints;
 using FastEndpoints.Security;
 using Microsoft.AspNetCore.Identity;
 
-namespace Bookstore.Users.UsersEndpoints;
+namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
 internal class Login : Endpoint<LoginUserRequest>
 {

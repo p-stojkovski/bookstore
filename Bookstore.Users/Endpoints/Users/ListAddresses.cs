@@ -5,22 +5,37 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Ardalis.Result;
-using Bookstore.Users.UseCases;
-using Bookstore.Users.UseCases.Cart.ListItems;
+using Bookstore.Users.UseCases.User;
 using FastEndpoints;
 using MediatR;
 
-namespace Bookstore.Users.CartEndpoints;
+namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
-internal class ListCartItems : EndpointWithoutRequest<CartResponse>
+public class AddressListResponse
+{
+    public List<UserAddressDto> Addresses { get; set; } = new();
+}
+
+public record UserAddressDto(Guid Id,
+    string Street1,
+    string Street2,
+    string City,
+    string State,
+    string PostalCode,
+    string Country);
+
+internal class ListAddresses : EndpointWithoutRequest<AddressListResponse>
 {
     private readonly IMediator _mediator;
 
-    public ListCartItems(IMediator mediator) => _mediator = mediator;
+    public ListAddresses(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
 
     public override void Configure()
     {
-        Get("/cart");
+        Get("/users/addresses");
         Claims("EmailAddress");
     }
 
@@ -33,21 +48,16 @@ internal class ListCartItems : EndpointWithoutRequest<CartResponse>
             return;
         }
 
-        var query = new ListCartItemsQuery(emailAddress);
-
-        var result = await _mediator.Send(query, cancellationToken);
-
+        var result = await _mediator.Send(new ListAddressesQuery(emailAddress), cancellationToken);
         if (result.Status is ResultStatus.Unauthorized)
         {
             await SendUnauthorizedAsync();
             return;
         }
 
-        var response = new CartResponse()
+        await SendAsync(new AddressListResponse
         {
-            CartItems = result.Value
-        };
-
-        await SendAsync(response);
+            Addresses = result.Value
+        });
     }
 }
