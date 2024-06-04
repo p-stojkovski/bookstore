@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using Ardalis.GuardClauses;
 using Bookstore.SharedKernel;
+using Bookstore.Users.Domain.Events;
 using Bookstore.Users.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
