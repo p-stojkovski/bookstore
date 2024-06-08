@@ -6,4 +6,12 @@ commands:
 dotnet ef migrations add Inital -c BookDbContext -p ..\Bookstore.Books\Bookstore.Books.csproj -s .\Bookstore.Web.csproj -o Data/Migrations
 dotnet ef database update -c UsersDbContext
 
+---Redis cache---
 docker run --name bookstore-redis -p 6379:6379 -d redis
+-----------------
+
+---Email test server---
+docker run --name=papercut -p 25:25 -p 37408:37408 jijiechen/papercut:latest -d 
+
+On http://localhost:37408/# you can see the collection of emails you have sent
+----------------
