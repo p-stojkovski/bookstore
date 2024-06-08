@@ -1,8 +1,10 @@
-﻿using System.Net.Sockets;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Sockets;
+using Bookstore.SharedKernel;
 
 namespace Bookstore.OrderProcessing.Domain;
 
-internal class Order
+internal class Order : IDomainEvents
 {
     public Guid Id { get; private set; } = Guid.NewGuid();
     public Guid UserId { get; private set; }
@@ -11,6 +13,13 @@ internal class Order
 
     private readonly List<OrderItem> _orderItems = new();
     public IReadOnlyCollection<OrderItem> OrderItems => _orderItems.AsReadOnly();
+
+    private readonly List<DomainEventBase> _domainEvents = new();
+    [NotMapped]
+    public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
+
+    protected void RegisterDomainEvent(DomainEventBase domainEvent) => _domainEvents.Add(domainEvent);
+    void IDomainEvents.ClearDomainEvents() => _domainEvents.Clear();
 
     public DateTimeOffset DateCreated { get; private set; } = DateTimeOffset.UtcNow;
 
@@ -33,9 +42,9 @@ internal class Order
                 order.AddOrderItem(item);
             }
 
+            order.RegisterDomainEvent(new OrderCreatedEvent(order));
+
             return order;
         }
     }
 }
-
-
