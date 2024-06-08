@@ -4,7 +4,7 @@ using MimeKit;
 
 namespace Bookstore.EmailSending;
 
-public class EmailSender : ISendEmail
+internal class EmailSender : ISendEmail
 {
     private readonly ILogger<EmailSender> _logger;
 

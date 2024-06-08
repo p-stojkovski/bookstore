@@ -1,4 +1,5 @@
 ﻿using Ardalis.Result;
+using Bookstore.EmailSending.Contracts;
 using MediatR;
 
 namespace Bookstore.EmailSending.Integrations;
