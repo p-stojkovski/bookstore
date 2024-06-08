@@ -32,18 +32,22 @@ internal class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Res
             return Result.Error(new ErrorList(result.Errors.Select(x => x.Description).ToArray()));
         }
 
-        // send welcome email
+        await SendWelcomeEmail(command.Email, cancellationToken);
+
+        return Result.Success();
+    }
+
+    private async Task SendWelcomeEmail(string email, CancellationToken cancellationToken)
+    {
         var sendEmailCommand = new SendEmailCommand
         {
-            To = command.Email,
+            To = email,
             From = "dontreply@test.com",
             Subject = "Welcome to our bookstore!",
             Body = "Thank you for your registration!"
         };
 
         _ = await _mediator.Send(sendEmailCommand, cancellationToken);
-
-        return Result.Success();
     }
 }
 

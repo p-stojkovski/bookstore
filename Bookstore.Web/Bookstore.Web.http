@@ -65,7 +65,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhckB0ZXN0LmNvbSIsImlhdCI6MTcxNzUzNTMxNiwiZXhwIjoxNzE3NTM4OTE2LCJuYmYiOjE3MTc1MzUzMTZ9.zwidMd642iVW19pC3AK5ecvcvinuW1sgmgaFoO-tNoo
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhcjJAdGVzdC5jb20iLCJpYXQiOjE3MTc4NDUyODAsImV4cCI6MTcxNzg0ODg4MCwibmJmIjoxNzE3ODQ1MjgwfQ.tts30dWTtnZy2S_EHCM2E2HAAxO7YERL96oW3EvdPXc
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 {
   "bookId": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
-  "quantity": 0
+  "quantity": 1
 }
 
 ###
