@@ -12,6 +12,7 @@ public static class EmailSendingModuleServicesExtensions
         ILogger logger,
         List<Assembly> mediatRAssemblies)
     {
+        services.AddTransient<ISendEmail, EmailSender>();
 
         mediatRAssemblies.Add(typeof(EmailSendingModuleServicesExtensions).Assembly);
 
