@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using MediatR;
 
-namespace Bookstore.Users.UseCases.User;
+namespace Bookstore.Users.UseCases.User.AddAddress;
 
 internal record AddAddressToUserCommand(string EmailAddress,
     string Street1,

@@ -9,7 +9,7 @@ using Bookstore.Users.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Bookstore.Users.UseCases.User;
+namespace Bookstore.Users.UseCases.User.AddAddress;
 internal class AddAddressToUserCommandHandler : IRequestHandler<AddAddressToUserCommand, Result>
 {
     private readonly IApplicationUserRepository _userRepository;

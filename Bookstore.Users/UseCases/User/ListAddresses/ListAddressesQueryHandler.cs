@@ -3,7 +3,7 @@ using Bookstore.Users.Endpoints.UsersEndpoints;
 using Bookstore.Users.Interfaces;
 using MediatR;
 
-namespace Bookstore.Users.UseCases.User;
+namespace Bookstore.Users.UseCases.User.ListAddresses;
 
 internal class ListAddressesQueryHandler : IRequestHandler<ListAddressesQuery, Result<List<UserAddressDto>>>
 {

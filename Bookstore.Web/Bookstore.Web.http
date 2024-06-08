@@ -39,24 +39,27 @@ Content-Type: application/json
 
 ###
 
+# Create user
+
 POST {{Bookstore.Web_HostAddress}}/users
 Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "petar@test.com",
+  "email": "petar2@test.com",
   "password": "Pa$$word1"
 }
 
 ###
 
+# Login user
 
 POST {{Bookstore.Web_HostAddress}}/users/login
 Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "petar@test.com",
+  "email": "petar2@test.com",
   "password": "Pa$$word1"
 }
 
