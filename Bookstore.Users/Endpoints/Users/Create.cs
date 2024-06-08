@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ardalis.Result.AspNetCore;
 using Bookstore.Users.Domain;
+using Bookstore.Users.UseCases.User.Create;
 using Bookstore.Users.UsersEndpoints;
 using FastEndpoints;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,11 +16,11 @@ namespace Bookstore.Users.Endpoints.UsersEndpoints;
 
 internal class Create : Endpoint<CreateUserRequest>
 {
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IMediator _mediator;
 
-    public Create(UserManager<ApplicationUser> userManager)
+    public Create(IMediator mediator)
     {
-        _userManager = userManager;
+        _mediator = mediator;
     }
 
     public override void Configure()
@@ -29,13 +32,14 @@ internal class Create : Endpoint<CreateUserRequest>
     public override async Task HandleAsync(CreateUserRequest request,
         CancellationToken cancellationToken = default)
     {
-        var newUser = new ApplicationUser
-        {
-            Email = request.Email,
-            UserName = request.Email
-        };
+        var command = new CreateUserCommand(request.Email, request.Password);
 
-        await _userManager.CreateAsync(newUser, request.Password);
+        var result = await _mediator.Send(command);
+        if (!result.IsSuccess)
+        {
+            await SendResultAsync(result.ToMinimalApiResult());
+            return;
+        }
 
         await SendOkAsync();
     }
