@@ -8,6 +8,7 @@ using System.Reflection;
 using Bookstore.OrderProcessing;
 using Bookstore.SharedKernel;
 using Bookstore.Users.UseCases.Cart.AddItem;
+using Bookstore.EmailSending;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -29,6 +30,7 @@ builder.Services.AddFastEndpoints()
 // Add module service
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddEmailSendingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 

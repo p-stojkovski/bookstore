@@ -7,19 +7,15 @@
     <PackageReference Include="Ardalis.Result" Version="9.1.0" />
     <PackageReference Include="FastEndpoints" Version="5.25.0" />
     <PackageReference Include="FastEndpoints.Security" Version="5.25.0" />
+    <PackageReference Include="MailKit" Version="4.6.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
-    <PackageReference Include="Ardalis.GuardClauses" Version="4.5.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
-    <PackageReference Include="StackExchange.Redis" Version="2.7.33" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bookstore.OrderProcessing.Contracts\Bookstore.OrderProcessing.Contracts.csproj" />
-    <ProjectReference Include="..\Bookstore.Users.Contracts\Bookstore.Users.Contracts.csproj" />
+    <ProjectReference Include="..\Bookstore.EmailSending.Contracts\Bookstore.EmailSending.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
