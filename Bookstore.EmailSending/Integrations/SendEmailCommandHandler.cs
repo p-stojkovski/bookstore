@@ -1,10 +1,9 @@
 ﻿using Ardalis.Result;
 using Bookstore.EmailSending.Contracts;
-using MediatR;
 
 namespace Bookstore.EmailSending.Integrations;
 
-internal class SendEmailCommandHandler : IRequestHandler<SendEmailCommand, Result<Guid>>
+internal class SendEmailCommandHandler //: IRequestHandler<SendEmailCommand, Result<Guid>>
 {
     private readonly ISendEmail _emailSender;
 
@@ -13,7 +12,7 @@ internal class SendEmailCommandHandler : IRequestHandler<SendEmailCommand, Resul
         _emailSender = emailSender;
     }
 
-    public async Task<Result<Guid>> Handle(SendEmailCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Guid>> HandleAsync(SendEmailCommand request, CancellationToken cancellationToken)
     {
         await _emailSender.SendEmailAsync(request.To,
             request.From,
