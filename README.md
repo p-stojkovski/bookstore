@@ -15,3 +15,6 @@ docker run --name=papercut -p 25:25 -p 37408:37408 jijiechen/papercut:latest -d
 
 On http://localhost:37408/# you can see the collection of emails you have sent
 ----------------
+
+---MongoDb----
+docker run --name mongodb -d -p 27017:27017 mongo

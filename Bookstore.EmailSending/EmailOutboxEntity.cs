@@ -1,6 +1,6 @@
 ﻿namespace Bookstore.EmailSending;
 
-internal class EmailOutboxEntity
+public class EmailOutboxEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string To { get; set; } = string.Empty;

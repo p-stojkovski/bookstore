@@ -65,7 +65,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhcjJAdGVzdC5jb20iLCJpYXQiOjE3MTc4NDUyODAsImV4cCI6MTcxNzg0ODg4MCwibmJmIjoxNzE3ODQ1MjgwfQ.tts30dWTtnZy2S_EHCM2E2HAAxO7YERL96oW3EvdPXc
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhcjJAdGVzdC5jb20iLCJpYXQiOjE3MTgyMTQxNzUsImV4cCI6MTcxODIxNzc3NiwibmJmIjoxNzE4MjE0MTc2fQ.4OEaHY1iG3c13eeXVUqS9lKz7pxJjyOrWNRsmJUiiG4
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -138,3 +138,8 @@ Content-Type: application/json
 
 {
 }
+
+### List emails
+GET {{Bookstore.Web_HostAddress}}/emails
+Accept: application/json
+Authorization: Bearer {{token}}
