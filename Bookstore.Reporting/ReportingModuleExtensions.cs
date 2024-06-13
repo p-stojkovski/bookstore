@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Bookstore.Reporting.ReportEndpoints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -15,6 +16,9 @@ public static class ReportingModuleExtensions
         //string? connectionString = config.GetConnectionString("OrderProcessingConnectionString");
         //services.AddDbContext<OrderProcessingDbContext>(options =>
         //    options.UseSqlServer(connectionString));
+
+        // configure module services
+        services.AddScoped<ITopSellingBooksReportService, TopSellingBooksReportService>();
 
         mediatRAssemblies.Add(typeof(ReportingModuleExtensions).Assembly);
 

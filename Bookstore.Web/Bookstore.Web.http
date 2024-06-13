@@ -149,6 +149,6 @@ Authorization: Bearer {{token}}
 ### 
 
 # Top Sales
-GET {{Bookstore.Web_HostAddress}}/topsales
+GET {{Bookstore.Web_HostAddress}}/topsales?month=6&year=2024
 Accept: application/json
 //Authorization: Bearer {{token}}
