@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Logging;
 using MimeKit;
 
-namespace Bookstore.EmailSending;
+namespace Bookstore.EmailSending.EmailBackgroundService;
 
-internal class EmailSender : ISendEmail
+internal class MimeKitEmailSender : ISendEmail
 {
-    private readonly ILogger<EmailSender> _logger;
+    private readonly ILogger<MimeKitEmailSender> _logger;
 
-    public EmailSender(ILogger<EmailSender> logger)
+    public MimeKitEmailSender(ILogger<MimeKitEmailSender> logger)
     {
         _logger = logger;
     }

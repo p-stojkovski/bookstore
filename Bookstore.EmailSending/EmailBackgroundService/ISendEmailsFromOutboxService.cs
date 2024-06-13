@@ -1,4 +1,4 @@
-﻿namespace Bookstore.EmailSending;
+﻿namespace Bookstore.EmailSending.EmailBackgroundService;
 
 internal interface ISendEmailsFromOutboxService
 {

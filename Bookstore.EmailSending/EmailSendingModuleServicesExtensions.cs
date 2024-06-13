@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using Bookstore.EmailSending.EmailBackgroundService;
+using Bookstore.EmailSending.Integrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -19,8 +21,10 @@ public static class EmailSendingModuleServicesExtensions
         services.AddMongoDB(config);
 
         // Add module services
-        services.AddTransient<ISendEmail, EmailSender>();
-        services.AddTransient<IOutboxService, OutboxService>();
+        services.AddTransient<ISendEmail, MimeKitEmailSender>();
+        services.AddTransient<IQueueEmailsInOutboxService, QueueEmailsInOutboxService>();
+        services.AddTransient<IReadEmailsFromOutboxService, ReadEmailsFromOutboxService>();
+        services.AddTransient<IWriteEmailsToOutboxService, WriteEmailsToOutboxService>();
         services.AddTransient<ISendEmailsFromOutboxService, SendEmailsFromOutboxService>();
 
         // if using MediatR in this module, add any assemblies that contain handlers

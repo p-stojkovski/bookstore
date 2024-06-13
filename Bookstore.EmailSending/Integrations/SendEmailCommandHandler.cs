@@ -1,5 +1,6 @@
 ﻿using Ardalis.Result;
 using Bookstore.EmailSending.Contracts;
+using Bookstore.EmailSending.EmailBackgroundService;
 
 namespace Bookstore.EmailSending.Integrations;
 

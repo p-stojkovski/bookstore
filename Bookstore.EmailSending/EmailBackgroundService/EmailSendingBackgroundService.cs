@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Bookstore.EmailSending;
+namespace Bookstore.EmailSending.EmailBackgroundService;
 
 internal class EmailSendingBackgroundService : BackgroundService
 {
@@ -17,17 +17,17 @@ internal class EmailSendingBackgroundService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        int delayMilliseconds = 10_000; // 10 seconds
+        var delayMilliseconds = 10_000; // 10 seconds
 
         _logger.LogInformation("{serviceName} starting...", nameof(EmailSendingBackgroundService));
 
-        while(!stoppingToken.IsCancellationRequested)
+        while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
                 await _sendEmailsFromOutboxService.CheckForAndSendEmailsAsync();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 _logger.LogError("Error processing outbox: {message}", ex.Message);
             }
