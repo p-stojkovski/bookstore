@@ -139,7 +139,16 @@ Content-Type: application/json
 {
 }
 
-### List emails
+### 
+
+# List emails
 GET {{Bookstore.Web_HostAddress}}/emails
 Accept: application/json
 Authorization: Bearer {{token}}
+
+### 
+
+# Top Sales
+GET {{Bookstore.Web_HostAddress}}/topsales
+Accept: application/json
+//Authorization: Bearer {{token}}
