@@ -3,13 +3,16 @@ using Microsoft.Extensions.Logging;
 
 namespace Bookstore.EmailSending;
 
-public class EmailSendingBackgroundService : BackgroundService
+internal class EmailSendingBackgroundService : BackgroundService
 {
     private readonly ILogger<EmailSendingBackgroundService> _logger;
+    private readonly ISendEmailsFromOutboxService _sendEmailsFromOutboxService;
 
-    public EmailSendingBackgroundService(ILogger<EmailSendingBackgroundService> logger)
+    public EmailSendingBackgroundService(ILogger<EmailSendingBackgroundService> logger,
+        ISendEmailsFromOutboxService sendEmailsFromOutboxService)
     {
         _logger = logger;
+        _sendEmailsFromOutboxService = sendEmailsFromOutboxService;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -22,7 +25,7 @@ public class EmailSendingBackgroundService : BackgroundService
         {
             try
             {
-
+                await _sendEmailsFromOutboxService.CheckForAndSendEmailsAsync();
             }
             catch(Exception ex) 
             {

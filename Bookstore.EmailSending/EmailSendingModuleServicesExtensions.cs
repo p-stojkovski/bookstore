@@ -21,9 +21,13 @@ public static class EmailSendingModuleServicesExtensions
         // Add module services
         services.AddTransient<ISendEmail, EmailSender>();
         services.AddTransient<IOutboxService, OutboxService>();
+        services.AddTransient<ISendEmailsFromOutboxService, SendEmailsFromOutboxService>();
 
         // if using MediatR in this module, add any assemblies that contain handlers
         mediatRAssemblies.Add(typeof(EmailSendingModuleServicesExtensions).Assembly);
+
+        // Add Background worker
+        services.AddHostedService<EmailSendingBackgroundService>();
 
         logger.Information("{Module} module services registered.", "Email sending");
 
