@@ -16,7 +16,7 @@ internal class TopSalesByMonth2 : Endpoint<TopSalesByMonthRequest, TopSalesByMon
         Get("/topsales2");
         AllowAnonymous(); //TODO: lock down
     }
-
+    //TODO: Expolore with event driven reporting database
     public override async Task HandleAsync(TopSalesByMonthRequest request,
         CancellationToken cancellationToken = default)
     {
