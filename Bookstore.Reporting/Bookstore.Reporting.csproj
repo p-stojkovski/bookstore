@@ -15,4 +15,9 @@
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bookstore.Books.Contracts\Bookstore.Books.Contracts.csproj" />
+    <ProjectReference Include="..\Bookstore.OrderProcessing.Contracts\Bookstore.OrderProcessing.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

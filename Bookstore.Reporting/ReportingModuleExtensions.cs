@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using Bookstore.Reporting;
+using Bookstore.Reporting.Integrations;
 using Bookstore.Reporting.ReportEndpoints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,8 @@ public static class ReportingModuleExtensions
 
         // configure module services
         services.AddScoped<ITopSellingBooksReportService, TopSellingBooksReportService>();
+        services.AddScoped<ISalesReportService, SalesReportService>();
+        services.AddScoped<OrderIngestionService>();
 
         mediatRAssemblies.Add(typeof(ReportingModuleExtensions).Assembly);
 

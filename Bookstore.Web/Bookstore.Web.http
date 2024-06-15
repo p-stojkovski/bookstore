@@ -65,7 +65,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhcjJAdGVzdC5jb20iLCJpYXQiOjE3MTgzMTE3MzUsImV4cCI6MTcxODMxNTMzNSwibmJmIjoxNzE4MzExNzM1fQ.ji-RaXQk311d5b9JHVeM0EraG1VROU2Y4fiaId9Vmyo
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJwZXRhcjJAdGVzdC5jb20iLCJpYXQiOjE3MTg0MzM2MTUsImV4cCI6MTcxODQzNzIxNSwibmJmIjoxNzE4NDMzNjE1fQ.csJ2TvBVPWxSK9JYUBPAS952amVtbEPQAMwdkVWpZbk
 
 # Add item to cart
 POST {{Bookstore.Web_HostAddress}}/cart
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 {
   "bookId": "b29b0d03-75bd-4590-a0c6-bec4bcc2908e",
-  "quantity": 1
+  "quantity": 5
 }
 
 ###
@@ -148,7 +148,16 @@ Authorization: Bearer {{token}}
 
 ### 
 
-# Top Sales
+# Top Sales - Reach in reporting
 GET {{Bookstore.Web_HostAddress}}/topsales?month=6&year=2024
 Accept: application/json
 //Authorization: Bearer {{token}}
+
+###
+
+# Top Sales 2 - Event ingeastion custom db
+GET {{Bookstore.Web_HostAddress}}/topsales2?month=6&year=2024
+Accept: application/json
+//Authorization: Bearer {{token}}
+
+### 
