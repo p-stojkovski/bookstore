@@ -18,3 +18,16 @@ On http://localhost:37408/# you can see the collection of emails you have sent
 
 ---MongoDb----
 docker run --name mongodb -d -p 27017:27017 mongo
+
+
+### Next steps:
+- Create application architecture diagram
+- Create API endpoints flow diagrams
+- Clear the TODO list
+- Add different modules:
+    - Payment processing module
+    - Text alerts module
+    - Shipping module (updates order status, sends a text or when it was delivered)
+    - Book reviews module
+- Add more reports (geographic with addresses from different countries)
+    - Top Sales by Country Report
